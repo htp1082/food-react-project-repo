@@ -19,3 +19,13 @@
 .add-to-cart{
     background-color: rgb(51, 173, 51);
 }
+.img-card{
+    width: 100px;
+    display: grid;
+    gap: 20px;
+}
+
+#img{
+    width: 100px;
+    height: 80px;
+}

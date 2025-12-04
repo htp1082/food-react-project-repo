@@ -9,15 +9,15 @@ const Menus = ({ foodFech }) => {
 
   const [addtoFavourtie , setAddtoFavourite] = useState([]);
 
-  const favouriteFoodHandler=()=>{
-    const newAddtoFavourite = [...addtoFavourtie,meals]
+  const favouriteFoodHandler=(foods)=>{
+    const newAddtoFavourite = [...addtoFavourtie,foods]
     setAddtoFavourite(newAddtoFavourite);
   }
 
   const [addFoodPic, setAddFood] = useState([]);
 
-  const addtoFoodPic=()=>{
-    const newAddtoFoodPic = [...addFoodPic,meals];
+  const addtoFoodPicHandler=(foodPic)=>{
+    const newAddtoFoodPic = [...addFoodPic,foodPic];
     setAddFood(newAddtoFoodPic);
   }
   
@@ -26,10 +26,16 @@ const Menus = ({ foodFech }) => {
     <div>
       <h2>Total food item: {meals.length}</h2>
       <h2>Total Add to favourite cart: {addtoFavourtie.length}</h2>
+      <ol>
+        {addtoFavourtie.map(foods => <li>{foods.strMeal}</li>)}
+      </ol>
+      <ol className="img">
+        {addFoodPic.map(foodPic => <li> <img src={foodPic} id="img"></img></li>)}
+      </ol>
    
       <div className="card-grid">
         {meals.map((meal) => (
-          <Menu key={meals.idMeal} meal={meal} favouriteFoodHandler={favouriteFoodHandler}></Menu>
+          <Menu key={meals.idMeal} meal={meal} favouriteFoodHandler={favouriteFoodHandler} addtoFoodPicHandler={addtoFoodPicHandler} ></Menu>
         ))}
       </div>
     </div>
